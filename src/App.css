@@ -1,38 +1,154 @@
-.App {
-  text-align: center;
+
+
+:root {
+    --t-yellow: #ffc000;
+    --t-brown: #251524;
+}
+ h1, h2, h3, h4, h5, h6 {
+    margin: 0px !important;
+}
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+    width: 100%;
+    background: var(--t-brown);
+    height: 103px;
+    padding: 0px;
+    box-shadow: 0 0px 40px -10px rgba(30, 30, 30, 0.5);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.logo-container{
+    background-color: var(--t-yellow);
+    width: 103px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    width: 103px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-items ul {
+    display: flex;
+}
+.nav-items ul li{
+    min-height: 40px;
+    width: 90px;
+    padding: 10px;
+    margin: 10px;
+    list-style: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+.nav-items ul li a{
+    color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav-items ul li a:hover{
+    color: var(--t-yellow);
+}
+.cart-container {
+    background-color: var(--t-yellow);
+    width: 103px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+/* hero banner */
+.banner-box {
+    background-image: url(./images/banner_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 360px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+/* restro container */
+
+.top-restro-btn, .all-restro-btn{
+    background: var(--t-brown) !important;
+    border: none !important;
+    margin-right: 10px;
+}
+.card-body{
+    padding: 10px !important;
+}
+.restro-card {
+    border: 3px solid #ffc000 !important;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+.restro-card:hover {
+    border: 5px solid #ffc000 !important;
+}
+.restro-card-img{
+    height: 200px;
+}
+.res-card-img{
+    height: 100%;
+    width: 100%;
+}
+.restro-name{
+    display: flex;
+    justify-content: center;
+}
+.restro-text h5{
+    font-size: 15px;
+    padding-bottom: 5px;
+    -webkit-line-clamp: 1;
+    display: -webkit-box; /* Required for Safari */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.restro-text h6{
+    font-size: 13px;
+}
+.restro-text p{
+    font-size: 12px;
+    -webkit-line-clamp: 1;
+    display: -webkit-box; /* Required for Safari */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: rgb(128, 126, 126);
+}
+.restro-slider{
+    display: flex;
+    justify-content:center ;
+
+}
+.restro-slider svg{
+    color: var(--t-brown);
+}
+.restro-slider svg:hover{
+    color: var(--t-yellow);
+    scale: 1.1;
+}
+.search-box{
+    display: flex;
+    justify-content: center;
+}
+.d-flex{
+    display: flex;
+    flex-wrap: wrap;
 }
