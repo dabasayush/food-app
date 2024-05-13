@@ -2,6 +2,8 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import RestroCard from "../cards/RestroCard";
 import Slider from "react-slick";
 import { useEffect, useState } from "react";
+import { RESTAURANTS_URL } from "../../common/constants";
+import { Link } from "react-router-dom";
 
 const RestroContainer = () => {
 
@@ -10,14 +12,12 @@ const RestroContainer = () => {
     const [searchedRestro, setSearchedRestro] = useState([])
     useEffect(() => {
         const apiData = async () => {
-            const response = await fetch(
-                "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65420&lng=77.23730&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-            );
+            const response = await fetch(RESTAURANTS_URL);
             const result = await response.json();
             // console.log("result: " , result.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
-            setRestroData(result.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
-            setSearchedRestro(result.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
-        }
+            setRestroData(result?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setSearchedRestro(result?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        } 
         apiData();
     }, []);
 
@@ -49,9 +49,9 @@ const RestroContainer = () => {
         <Container>
             <div className="search-box mt-2">
                 <input type="text" value={resSearch}
-                onChange={(e) => {
-                    setResSerch(e.target.value);
-                }}
+                    onChange={(e) => {
+                        setResSerch(e.target.value);
+                    }}
                 />
                 <Button className="btn btn-danger" onClick={()=> {
                     const searchedRestro = restroData.filter((res)=> res.info.name.toLowerCase().includes(resSearch.toLowerCase()))
@@ -68,9 +68,11 @@ const RestroContainer = () => {
             {restroData.length ? 
             <Row>
                 {/* <Slider className="restro-slider" {...settings}> */}
-                    {restroData && searchedRestro.slice(0, 6).map((data, index) => (
+                    {restroData && searchedRestro.slice(0, 6).map((data) => (
                         <Col md={4} className="pb-4">
-                            <RestroCard key={index} resData={data} />
+                            <Link to={"/restaurants/"+data.info.id}>
+                                <RestroCard key={data.info.id} resData={data} />
+                            </Link>
                         </Col>
                     ))}
                 {/* </Slider> */}

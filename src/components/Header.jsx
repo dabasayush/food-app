@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -12,14 +13,19 @@ const Header = () => {
             <div className="nav-items">
                 <ul>
                     <li>
-                        <a href="/">
+                        <Link to="/">
                             Home
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/about">
+                        <Link to="/about">
                             About
-                        </a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/learn">
+                            Learn
+                        </Link>
                     </li>
                     <li
                         onClick={() => {
